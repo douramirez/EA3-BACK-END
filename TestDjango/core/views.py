@@ -1,15 +1,18 @@
 from django.shortcuts import render
 
 # Create your views here.
-
-def home (request):
+def home(request):
     return render(request, 'home.html')
 
-def test (request):
-    return render(request, 'test.html')
+def datos(request):
+    #contexto={"nombre":"Douglas Ramirez"}
+    hijo = Class_Persona("Renata Belen", "2")
+    contexto={"nombre":"Douglas Ramirez", "pariente":hijo, "pariente":hijo}
+    return render(request, 'datos.html', contexto)
 
-def form (request):
-    return render(request, 'form_contacto.html')
-    
-
+class Class_Persona:
+    def __init__(self, nombre, edad):
+        self.nombre=nombre
+        self.edad=edad
+        super().__init__()
 
